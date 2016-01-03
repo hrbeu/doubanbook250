@@ -16,7 +16,7 @@ class BookSpider(CrawlSpider):
 	start_urls=["http://book.douban.com/top250"]
 	#定义爬取URL的规则,并指定回调函数
 	rules=[
-                #注意:url中的问号前一定加"\"转义;默认follow=False
+                #注意:url中的问号前一定加"\"转义;没有callback意味着默认follow=False
                 Rule(LinkExtractor(allow=(r'http://book.douban.com/top250\?start=\d+')),follow=True),
                 Rule(LinkExtractor(allow=(r'http://book.douban.com/subject/\d+')),follow=False,callback="parse_item"),
 	]
